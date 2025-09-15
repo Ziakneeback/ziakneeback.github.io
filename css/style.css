@@ -312,12 +312,15 @@ body {
 }
 
 .pdf-frame, .pdf-img {
-  max-width: 80%;
-  max-height: 80%;
+  width: 90%;
+  height: 90%;
+  max-width: 1200px;  /* чтобы на больших мониторах было ограничение */
+  max-height: 95vh;  /* почти вся высота экрана */
   border-radius: 10px;
   background: #fff;
   border: none;
 }
+
 .pdf-img {
   display: none;
 }
