@@ -63,7 +63,7 @@ body {
 /* Герой */
 .hero {
   background: url("../images/construction.jpg") no-repeat center center/cover;
-  color: #fff;
+  color: #000000;
   padding: 100px 20px;
   text-align: center;
 }
