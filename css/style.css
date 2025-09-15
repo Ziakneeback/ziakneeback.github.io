@@ -33,7 +33,16 @@ body {
 .logo {
   font-size: 24px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* расстояние между картинкой и текстом */
 }
+
+.logo-img {
+  height: 40px;  /* подгони по размеру */
+  width: auto;
+}
+
 
 .nav {
   list-style: none;
@@ -53,7 +62,7 @@ body {
 
 /* Герой */
 .hero {
-  background: url("../images/construction.jpg") no-repeat center center/cover;
+  background: url("images/construction.jpg") no-repeat center center/cover;
   color: #fff;
   padding: 100px 20px;
   text-align: center;
