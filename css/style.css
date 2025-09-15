@@ -19,6 +19,7 @@ body {
 
 /* Шапка */
 .header {
+  position: fixed;
   background: #222;
   color: #fff;
   padding: 15px 0;
