@@ -90,3 +90,43 @@ window.addEventListener("click", (e) => {
     certImage.src = "";
   }
 });
+
+// Лайтбокс для документов
+const docThumbnails = document.querySelectorAll(".doc-thumbnail");
+const docLightbox = document.getElementById("docLightbox");
+const docFrame = document.getElementById("docFrame");
+const docImage = document.getElementById("docImage");
+const docClose = docLightbox.querySelector(".pdf-close");
+
+docThumbnails.forEach(thumb => {
+  thumb.addEventListener("click", () => {
+    const type = thumb.getAttribute("data-type");
+    const src = thumb.getAttribute("data-src");
+
+    if (type === "pdf") {
+      docFrame.src = src + "#toolbar=0";
+      docFrame.style.display = "block";
+      docImage.style.display = "none";
+    } else {
+      docImage.src = src;
+      docImage.style.display = "block";
+      docFrame.style.display = "none";
+    }
+
+    docLightbox.style.display = "flex";
+  });
+});
+
+docClose.addEventListener("click", () => {
+  docLightbox.style.display = "none";
+  docFrame.src = "";
+  docImage.src = "";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === docLightbox) {
+    docLightbox.style.display = "none";
+    docFrame.src = "";
+    docImage.src = "";
+  }
+});
