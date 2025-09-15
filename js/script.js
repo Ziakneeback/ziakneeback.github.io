@@ -31,3 +31,22 @@ lightbox.addEventListener("click", (e) => {
     lightbox.style.display = "none";
   }
 });
+
+// PDF Lightbox
+const openPdf = document.getElementById("openPdf");
+const pdfLightbox = document.getElementById("pdfLightbox");
+const pdfClose = document.querySelector(".pdf-close");
+
+openPdf.addEventListener("click", () => {
+  pdfLightbox.style.display = "flex";
+});
+
+pdfClose.addEventListener("click", () => {
+  pdfLightbox.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === pdfLightbox) {
+    pdfLightbox.style.display = "none";
+  }
+});

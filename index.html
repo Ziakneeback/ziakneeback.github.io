@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+
   <!-- Шапка -->
   <header class="header">
     <div class="container header-container">
@@ -85,38 +85,23 @@
   </section>
 
   <!-- Презентация -->
-  <section id="presentation" class="presentation">
+  <!-- Презентация -->
+<section id="presentation" class="presentation">
   <div class="container">
     <h2>Презентация компании</h2>
-    <div id="pdf-viewer" class="pdf-viewer"></div>
+    <!-- Превью PDF -->
+    <img src="images/presentation-preview.png" alt="Презентация компании" 
+         class="pdf-thumbnail" id="openPdf">
+
+    <!-- Лайтбокс -->
+    <div id="pdfLightbox" class="pdf-lightbox">
+      <span class="pdf-close">&times;</span>
+      <iframe src="presentation.pdf#toolbar=0" class="pdf-frame"></iframe>
+    </div>
   </div>
 </section>
 
-<script type="module">
-  import * as pdfjsLib from './js/pdfjs/pdf.mjs';
 
-  // Указываем воркер
-  pdfjsLib.GlobalWorkerOptions.workerSrc = './js/pdfjs/pdf.worker.mjs';
-
-  const url = 'presentation.pdf'; // твой PDF
-  const container = document.getElementById('pdf-viewer');
-
-  // Загружаем PDF
-  pdfjsLib.getDocument(url).promise.then(pdf => {
-    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-      pdf.getPage(pageNum).then(page => {
-        const viewport = page.getViewport({ scale: 1.2 });
-        const canvas = document.createElement("canvas");
-        canvas.classList.add("pdf-page");
-        const context = canvas.getContext("2d");
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
-        container.appendChild(canvas);
-        page.render({ canvasContext: context, viewport: viewport });
-      });
-    }
-  });
-</script>
 
   <!-- Контакты -->
   <section id="contact" class="contact">
