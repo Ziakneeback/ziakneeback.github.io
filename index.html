@@ -83,6 +83,40 @@
     </div>
   </section>
 
+  <!-- Презентация -->
+  <section id="presentation" class="presentation">
+  <div class="container">
+    <h2>Презентация компании</h2>
+    <div id="pdf-viewer" class="pdf-viewer"></div>
+  </div>
+</section>
+
+<script type="module">
+  import * as pdfjsLib from './js/pdfjs/pdf.mjs';
+
+  // Указываем воркер
+  pdfjsLib.GlobalWorkerOptions.workerSrc = './js/pdfjs/pdf.worker.mjs';
+
+  const url = 'presentation.pdf'; // твой PDF
+  const container = document.getElementById('pdf-viewer');
+
+  // Загружаем PDF
+  pdfjsLib.getDocument(url).promise.then(pdf => {
+    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+      pdf.getPage(pageNum).then(page => {
+        const viewport = page.getViewport({ scale: 1.2 });
+        const canvas = document.createElement("canvas");
+        canvas.classList.add("pdf-page");
+        const context = canvas.getContext("2d");
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        container.appendChild(canvas);
+        page.render({ canvasContext: context, viewport: viewport });
+      });
+    }
+  });
+</script>
+
   <!-- Контакты -->
   <section id="contact" class="contact">
     <div class="container">
@@ -101,7 +135,7 @@
   <!-- Подвал -->
   <footer class="footer">
     <div class="container">
-      <p>© 2025 СтройПроект. Все права защищены.</p>
+      <p>© 2025 ТОО «Борлi Курылыс». Все права защищены.</p>
     </div>
   </footer>
 
