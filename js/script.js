@@ -50,3 +50,43 @@ window.addEventListener("click", (e) => {
     pdfLightbox.style.display = "none";
   }
 });
+
+// Лайтбокс для сертификатов
+const certThumbnails = document.querySelectorAll(".cert-thumbnail");
+const certLightbox = document.getElementById("certLightbox");
+const certFrame = document.getElementById("certFrame");
+const certImage = document.getElementById("certImage");
+const certClose = certLightbox.querySelector(".pdf-close");
+
+certThumbnails.forEach(thumb => {
+  thumb.addEventListener("click", () => {
+    const type = thumb.getAttribute("data-type");
+    const src = thumb.getAttribute("data-src");
+
+    if (type === "pdf") {
+      certFrame.src = src + "#toolbar=0";
+      certFrame.style.display = "block";
+      certImage.style.display = "none";
+    } else {
+      certImage.src = src;
+      certImage.style.display = "block";
+      certFrame.style.display = "none";
+    }
+
+    certLightbox.style.display = "flex";
+  });
+});
+
+certClose.addEventListener("click", () => {
+  certLightbox.style.display = "none";
+  certFrame.src = "";
+  certImage.src = "";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === certLightbox) {
+    certLightbox.style.display = "none";
+    certFrame.src = "";
+    certImage.src = "";
+  }
+});
