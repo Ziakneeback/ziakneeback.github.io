@@ -1,0 +1,142 @@
+/* Сброс */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Шапка */
+.header {
+  background: #222;
+  color: #fff;
+  padding: 15px 0;
+}
+
+.header .logo {
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav {
+  list-style: none;
+  float: right;
+}
+
+.nav li {
+  display: inline;
+  margin-left: 20px;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: #f0c040;
+}
+
+/* Герой */
+.hero {
+  background: url("../images/construction.jpg") no-repeat center center/cover;
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #f0c040;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #e0a030;
+}
+
+/* Услуги */
+.services {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #f5f5f5;
+  padding: 20px;
+  margin: 10px;
+  flex: 1;
+  min-width: 250px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  background: #eaeaea;
+}
+
+/* О нас */
+.about {
+  padding: 60px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+/* Контакты */
+.contact {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contact form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact input, .contact textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Подвал */
+.footer {
+  background: #222;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
